@@ -16,6 +16,7 @@ const props = {
     custom: true
   },
   params: {
+    custom: true,
     type: Object,
     default: function() {
       return {};
@@ -46,6 +47,8 @@ export default {
       },
       setToken(val) {
         this.params.token = val;
+      },
+      setParams(val) {
       }
     }
 };
