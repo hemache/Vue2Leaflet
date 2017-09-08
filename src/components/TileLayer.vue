@@ -4,6 +4,23 @@
 <script>
 
 import propsBinder from '../utils/propsBinder.js';
+import eventsBinder from '../utils/eventsBinder.js';
+
+
+const events = [
+  'loading',
+  'tileunload',
+  'tileloadstart',
+  'tileerror',
+  'tileload',
+  'load', 
+  'add',
+  'remove',
+  'popupopen',
+  'popupclose',
+  'tooltipopen',
+  'tooltipclose'
+];
 
 const props = {
   url: String,
@@ -30,6 +47,7 @@ export default {
       if (this.attribution) this.params['attribution'] = this.attribution;
       if (this.token) this.params['token'] = this.token;
       this.mapObject = L.tileLayer(this.url, this.params);
+      eventsBinder(this, this.mapObject, events);
       propsBinder(this, this.mapObject, props);
     },
     methods: {
